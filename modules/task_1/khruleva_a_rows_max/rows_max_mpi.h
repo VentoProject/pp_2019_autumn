@@ -9,6 +9,6 @@ std::vector<int> getMatr(int rows, int cols);
 std::vector<int> getMaxMatr(const std::vector<int>& matr, int rows, int cols);
 std::vector<int> getParallelMatr(const std::vector<int>& matr, int rows, int cols);
 
-#endif // MODULES_TASK_1_HRULEVA_A_ROWS_MAX_ROWS_MAX_MPI_H_
+#endif  // MODULES_TASK_1_HRULEVA_A_ROWS_MAX_ROWS_MAX_MPI_H_
 
 

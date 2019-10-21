@@ -67,7 +67,6 @@ std::vector<int> getParallelMatr(const std::vector<int>& matr, int p, int q) {
       elems_dalta = lines_delta*q;
       lines_add = p%size;
       elems_add = lines_add*q;
-
     }
   }
   int lines_in_proc = lines_delta;
