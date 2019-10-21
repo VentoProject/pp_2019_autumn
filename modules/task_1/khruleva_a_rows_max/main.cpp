@@ -11,14 +11,14 @@ TEST(Parallel_Operations_MPI, Test_negative_value) {
     ASSERT_ANY_THROW(getMatr(10, -7));
   }
 
- TEST(Parallel_Operations_MPI, Test_Zero) {
+  TEST(Parallel_Operations_MPI, Test_Zero) {
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     if (rank == 0) {
       ASSERT_ANY_THROW(getMatr(0, 0));
     }
 
- TEST(Parallel_Operations_MPI, Test_parallel_sequental_small_size) {
+    TEST(Parallel_Operations_MPI, Test_parallel_sequental_small_size) {
       MPI_Comm_rank(MPI_COMM_WORLD, &rank);
       std::vector<int> w;
       std::vector<int> v;
