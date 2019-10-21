@@ -29,7 +29,7 @@ TEST(Parallel_Operations_MPI, Test_negative_value) {
         v1 = getSequentialMax(w, a, b);
       }
       std::vector<int> v2 = getParallelMax(w, a, b);
-      if (rank == 0){
+      if (rank == 0) {
         ASSERT_EQ(v2, v1);
       }
     }
@@ -48,8 +48,6 @@ TEST(Parallel_Operations_MPI, Test_negative_value) {
         v1 = getSequentialMax(w, a, b);
         ASSERT_EQ(v2, v1);
       }
-
-
     }
 
     TEST(Parallel_Operations_MPI, Test_Correct_Solve) {
