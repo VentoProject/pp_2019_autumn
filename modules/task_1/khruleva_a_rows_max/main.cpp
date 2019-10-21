@@ -10,6 +10,7 @@ TEST(Parallel_Operations_MPI, Test_negative_value) {
   if (rank == 0) {
     ASSERT_ANY_THROW(getMatr(10, -7));
   }
+}
 
   TEST(Parallel_Operations_MPI, Test_Zero) {
     int rank;
@@ -17,6 +18,7 @@ TEST(Parallel_Operations_MPI, Test_negative_value) {
     if (rank == 0) {
       ASSERT_ANY_THROW(getMatr(0, 0));
     }
+  }
 
     TEST(Parallel_Operations_MPI, Test_parallel_sequental_small_size) {
       MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -77,3 +79,4 @@ TEST(Parallel_Operations_MPI, Test_negative_value) {
       listeners.Append(new GTestMPIListener::MPIMinimalistPrinter);
       return RUN_ALL_TESTS();
     }
+  
