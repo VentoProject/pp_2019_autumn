@@ -79,4 +79,3 @@ TEST(Parallel_Operations_MPI, Test_negative_value) {
       listeners.Append(new GTestMPIListener::MPIMinimalistPrinter);
       return RUN_ALL_TESTS();
     }
-  
