@@ -59,12 +59,10 @@ std::vector<int> getParallelMatr(const std::vector<int>& matr, int p, int q) {
       if (rank == 0) {
         result = getMaxMatr(matr, p, q);
         return result;
-      }
-      else {
+      } else {
         return result;
       }
-    }
-    else {
+    } else {
       lines_delta = p / size;
       elems_dalta = lines_delta*q;
       lines_add = p%size;
@@ -81,16 +79,14 @@ std::vector<int> getParallelMatr(const std::vector<int>& matr, int p, int q) {
       MPI_Send(&matr[elems_add] + elems_dalta * i, elems_dalta, MPI_INT, i, 0, MPI_COMM_WORLD);
     }
     process = std::vector<int>(matr.begin(), matr.begin() + elems_in_proc);
-  }
-  else {
+  } else {
     MPI_Status status;
     MPI_Recv(&proc_vec[0], elems_in_proc, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
   }
   max_value = getMaxMatr(process, lines_in_proc, q);
   if (rank != 0) {
     MPI_Send(&max_value[0], lines_in_proc, MPI_INT, 0, 0, MPI_COMM_WORLD);
-  }
-  else {
+  } else {
     result = max_value;
     MPI_Status status;
     for (int i = 1; i < size; i++) {
@@ -109,13 +105,11 @@ int getSequentialOperations(std::vector<int> vec, std::string ops) {
     for (int i = 0; i < sz; i++) {
       reduction_elem += vec[i];
     }
-  }
-  else if (ops == "-") {
+  } else if (ops == "-") {
     for (int i = 0; i < sz; i++) {
       reduction_elem -= vec[i];
     }
-  }
-  else if (ops == "max") {
+  } else if (ops == "max") {
     reduction_elem = vec[0];
     for (int i = 1; i < sz; i++) {
       reduction_elem = std::max(reduction_elem, vec[i]);
@@ -142,8 +136,7 @@ int getParallelOperations(std::vector<int> global_vec,
   if (rank == 0) {
     local_vec = std::vector<int>(global_vec.begin(),
       global_vec.begin() + delta);
-  }
-  else {
+  } else {
     MPI_Status status;
     MPI_Recv(&local_vec[0], delta, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
   }
