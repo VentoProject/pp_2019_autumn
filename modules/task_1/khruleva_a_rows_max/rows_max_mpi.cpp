@@ -5,7 +5,7 @@
 #include <random>
 #include <ctime>
 #include <algorithm>
-#include "../../../modules/test_1/khruleva_a_rows_max/rows_max_mpi.h"
+#include "../../../modules/task_1/khruleva_a_rows_max/rows_max_mpi.h"
 
 
 std::vector<int> getMatr(int p, int q) {
