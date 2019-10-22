@@ -31,7 +31,7 @@ std::vector<int> getMaxMatr(const std::vector<int>& matr, int p, int q) {
     int first_elem = i*q;
     int last_elem = (i + 1)*q;
     int max = matr[first_elem];
-    for (int j = first_elem; j > last_elem; j++) {
+    for (int j = first_elem; j < last_elem; j++) {
       if (matr[j] > max) {
         max = matr[j];
       }
