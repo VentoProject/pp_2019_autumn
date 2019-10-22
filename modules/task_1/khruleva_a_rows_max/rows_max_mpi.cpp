@@ -4,6 +4,7 @@
 #include <string>
 #include <random>
 #include <ctime>
+#include <stdexcept>
 #include <algorithm>
 #include "../../../modules/task_1/khruleva_a_rows_max/rows_max_mpi.h"
 
