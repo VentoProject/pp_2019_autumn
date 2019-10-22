@@ -21,33 +21,35 @@ TEST(Parallel_Operations_MPI, Test_Zero) {
 }
 
 TEST(Parallel_Operations_MPI, Test_parallel_sequental_small_size) {
+  int rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   std::vector<int> w;
-  std::vector<int> v;
-  const int a = 5;
-  const int b = 5;
+  std::vector<int> v1;
+  const int p = 5;
+  const int q = 5;
   if (rank == 0) {
-    w = getMart(a, b);
-    v1 = getSequentialMax(w, a, b);
+    w = getMatr(p, q);
+    v1 = getMaxMatr(w, p, q);
   }
-  std::vector<int> v2 = getParallelMax(w, a, b);
+  std::vector<int> v2 = getParallelMatr(w, p, q);
   if (rank == 0) {
     ASSERT_EQ(v2, v1);
   }
 }
 
 TEST(Parallel_Operations_MPI, Test_parallel_sequental_big_size) {
+  int rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   std::vector<int> w;
   std::vector<int> v1;
   const int a = 100;
   const int b = 100;
   if (rank == 0) {
-    w = getMart(a, b);
+    w = getMatr(a, b);
   }
-  std::vector<int> v2 = getParallelMax(w, a, b);
+  std::vector<int> v2 = getParallelMatr(w, a, b);
   if (rank == 0) {
-    v1 = getSequentialMax(w, a, b);
+    v1 = getMaxMatr(w, a, b);
     ASSERT_EQ(v2, v1);
   }
 }
@@ -58,10 +60,10 @@ TEST(Parallel_Operations_MPI, Test_Correct_Solve) {
   const int p = 3;
   const int q = 4;
   if (rank == 0) {
-    std::vector<int> first_matr = { 1, 7, 6, 4, 8, 2, 5, 9, 4, 3, 11, 1 };
-    std::vector<int> first_max_matr = getMaxMatr(global_vec, p, q);
-    std::vector<int> correct_vect = { 7, 9, 11 };
-    ASSERT_EQ(correct_vect, first_max_matr);
+    std::vector<int> w = { 1, 7, 6, 4, 8, 2, 5, 9, 4, 3, 11, 1 };
+    std::vector<int> v2 = getMaxMatr(w, p, q);
+    std::vector<int> v1 = { 7, 9, 11 };
+    ASSERT_EQ(v1, v2);
   }
 }
 
