@@ -7,7 +7,6 @@
 
 int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype datatype, MPI_Op op,
   int root, MPI_Comm comm) {
-
   if (count <= 0) return MPI_ERR_COUNT;
   if (sbuf == nullptr || rbuf == nullptr) return MPI_ERR_BUFFER;
   int ProcNum;
@@ -20,16 +19,13 @@ int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype dataty
 
   if (datatype == MPI_INT) {
     std::memcpy(rbuf, sbuf, count * sizeof(int));
-  }
-  else {
+  } else {
     if (datatype == MPI_DOUBLE) {
       std::memcpy(rbuf, sbuf, count * sizeof(double));
-    }
-    else {
+    } else {
       if (datatype == MPI_FLOAT) {
         std::memcpy(rbuf, sbuf, count * sizeof(float));
-      }
-      else {
+      } else {
         return MPI_ERR_TYPE;
       }
     }
@@ -43,8 +39,7 @@ int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype dataty
       int dest = ProcNum - ProcRank - 1;
       MPI_Send(rbuf, count, datatype, dest, 0, comm);
       break;
-    }
-    else {
+    } else {
       if (ProcRank < NewProcNum) {
         int source = ProcNum - ProcRank - 1;
         MPI_Status status;
@@ -57,22 +52,19 @@ int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype dataty
                 static_cast<int*>(rbuf)[i] = buf[i];
               }
             }
-          }
-          else {
+          } else {
             if (op == MPI_MIN) {
               for (int i = 0; i < count; i++) {
                 if (buf[i] < static_cast<int*>(rbuf)[i]) {
                   static_cast<int*>(rbuf)[i] = buf[i];
                 }
               }
-            }
-            else {
+            } else {
               if (op == MPI_SUM) {
                 for (int i = 0; i < count; i++) {
                   static_cast<int*>(rbuf)[i] += buf[i];
                 }
-              }
-              else {
+              } else {
                 if (op == MPI_PROD) {
                   for (int i = 0; i < count; i++) {
                     static_cast<int*>(rbuf)[i] *= buf[i];
@@ -81,8 +73,7 @@ int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype dataty
               }
             }
           }
-        }
-        else {
+        } else {
           if (datatype == MPI_DOUBLE) {
             double * buf = new double[count];
             MPI_Recv(buf, count, datatype, source, 0, comm, &status);
@@ -92,22 +83,19 @@ int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype dataty
                   static_cast<double*>(rbuf)[i] = buf[i];
                 }
               }
-            }
-            else {
+            } else {
               if (op == MPI_MIN) {
                 for (int i = 0; i < count; i++) {
                   if (buf[i] < static_cast<double*>(rbuf)[i]) {
                     static_cast<double*>(rbuf)[i] = buf[i];
                   }
                 }
-              }
-              else {
+              } else {
                 if (op == MPI_SUM) {
                   for (int i = 0; i < count; i++) {
                     static_cast<double*>(rbuf)[i] += buf[i];
                   }
-                }
-                else {
+                } else {
                   if (op == MPI_PROD) {
                     for (int i = 0; i < count; i++) {
                       static_cast<double*>(rbuf)[i] *= buf[i];
@@ -116,8 +104,7 @@ int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype dataty
                 }
               }
             }
-          }
-          else {
+          } else {
             if (datatype == MPI_FLOAT) {
               float * buf = new float[count];
               MPI_Recv(buf, count, datatype, source, 0, comm, &status);
@@ -127,22 +114,19 @@ int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype dataty
                     static_cast<float*>(rbuf)[i] = buf[i];
                   }
                 }
-              }
-              else {
+              } else {
                 if (op == MPI_MIN) {
                   for (int i = 0; i < count; i++) {
                     if (buf[i] < static_cast<float*>(rbuf)[i]) {
                       static_cast<float*>(rbuf)[i] = buf[i];
                     }
                   }
-                }
-                else {
+                } else {
                   if (op == MPI_SUM) {
                     for (int i = 0; i < count; i++) {
                       static_cast<float*>(rbuf)[i] += buf[i];
                     }
-                  }
-                  else {
+                  } else {
                     if (op == MPI_PROD) {
                       for (int i = 0; i < count; i++) {
                         static_cast<float*>(rbuf)[i] *= buf[i];

@@ -298,8 +298,7 @@ TEST(MPI_Reduce_Gather, check_max_with_all_roots) {
   MPI_Comm_size(MPI_COMM_WORLD, &ProcNum);
   if (ProcNum > 2) {
     root = ProcNum - 2;
-  }
-  else {
+  } else {
     root = 0;
   }
 
@@ -327,8 +326,7 @@ TEST(MPI_Reduce_Gather, check_min_with_all_roots) {
   MPI_Comm_size(MPI_COMM_WORLD, &ProcNum);
   if (ProcNum > 2) {
     root = ProcNum - 2;
-  }
-  else {
+  } else {
     root = 0;
   }
 
@@ -356,8 +354,7 @@ TEST(MPI_Reduce_Gather, check_sum_with_all_roots) {
   MPI_Comm_size(MPI_COMM_WORLD, &ProcNum);
   if (ProcNum > 2) {
     root = ProcNum - 2;
-  }
-  else {
+  } else {
     root = 0;
   }
 
@@ -385,8 +382,7 @@ TEST(MPI_Reduce_Gather, check_prod_with_all_roots) {
   MPI_Comm_size(MPI_COMM_WORLD, &ProcNum);
   if (ProcNum > 2) {
     root = ProcNum - 2;
-  }
-  else {
+  } else {
     root = 0;
   }
 
