@@ -1,11 +1,11 @@
-// Copyright 2019 Khruleva Anastasia
+// Copyright 2019 Astafeva Irina
 
 #include <mpi.h>
 #include <vector>
 #include <cstring>
 #include "../../../modules/task_2/khruleva_reduce/reduce_all.h"
 
-int MPI_Reduce_Gather(const void *sbuf, void *rbuf, int count, MPI_Datatype datatype, MPI_Op op,
+int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype datatype, MPI_Op op,
   int root, MPI_Comm comm) {
   if (count <= 0) return MPI_ERR_COUNT;
   if (sbuf == nullptr || rbuf == nullptr) return MPI_ERR_BUFFER;
