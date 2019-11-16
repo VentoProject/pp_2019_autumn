@@ -3,7 +3,7 @@
 #include <mpi.h>
 #include <vector>
 #include <cstring>
-#include "../../../modules/task_2/khruleva_reduce/mpi_reduce.h"
+#include "../../../modules/task_2/khruleva_reduce/reduce_all.h"
 
 int MPI_Reduce_User(const void *sbuf, void *rbuf, int count, MPI_Datatype datatype, MPI_Op op,
   int root, MPI_Comm comm) {
