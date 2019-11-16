@@ -6,7 +6,8 @@
 #include <random>
 #include <ctime>
 #include <cmath>
-#include "../../../modules/task_2/khruleva_reduce/mpi_reduce.h"
+#include <iostream>
+#include "../../../modules/task_2/khruleva_reduce/reduce_all.h"
 
 
 TEST(MPI_Reduce_Gather, check_nok_with_nullptr_buffer_to_int) {

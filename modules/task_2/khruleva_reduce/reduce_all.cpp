@@ -1,4 +1,4 @@
-// Copyright 2019 Astafeva Irina
+// Copyright 2019 Khruleva Anastasia
 
 #include <mpi.h>
 #include <vector>
