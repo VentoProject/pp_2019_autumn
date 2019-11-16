@@ -8,4 +8,4 @@
 int MPI_Reduce_Gather(const void *sbuf, void *rbuf, int count, MPI_Datatype datatype, MPI_Op op,
   int root, MPI_Comm comm);
 
-#endif  // MODULES_TASK_2_KHRULEVA_REDUCE_MPI_REDUCE_H_
+#endif  // MODULES_TASK_2_KHRULEVA_REDUCE_REDUCE_ALL_H_
