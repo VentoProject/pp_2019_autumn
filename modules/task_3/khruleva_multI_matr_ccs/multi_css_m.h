@@ -1,9 +1,8 @@
 // Copyright 2019 Khruleva Anastasia
-
-#include <mpi.h>
-#include <vector>
 #ifndef MODULES_TASK_3_HRULEVA_MULTI_METER_CCS_MULTI_CSS_M_H_
 #define MODULES_TASK_3_KHRULEVA_MULTI_METER_CCS_MULTI_CSS_M_H_
+#include <mpi.h>
+#include <vector>
 struct MatrixCCS {
   std::vector<double> val;
   std::vector<int> JA;
