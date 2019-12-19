@@ -1,8 +1,10 @@
+// Copyright 2019 Khruleva Anastasia
+
+#include <mpi.h>
 #include <vector>
 #include <iostream>
 #include <random>
 #include <ctime>
-#include <mpi.h>
 #include "../../../modules/task_3/khruleva_multI_matr_ccs/multi_css_m.h"
 
 MatrixCCS CCS(const std::vector<double> Mart_N, const int Col_N,
@@ -77,8 +79,7 @@ std::vector<double> multiplication(MatrixCCS X, MatrixCCS Y) {
   if (X.xxx == 0 || Y.xxx == 0) {
     if (rank == 0) {
       return X * Y;
-    }
-    else {
+    } else {
       return std::vector<double>();
     }
   }
@@ -90,8 +91,7 @@ std::vector<double> multiplication(MatrixCCS X, MatrixCCS Y) {
   if (X.Col < size) {
     if (rank == 0) {
       return X * Y;
-    }
-    else {
+    } else {
       return std::vector<double>();
     }
   }
@@ -148,8 +148,7 @@ std::vector<double> multiplication(MatrixCCS X, MatrixCCS Y) {
   if (rank == 0) {
     MPI_Reduce(&local_result[0], &global_result[0], X.Rows * Y.Col,
       MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-  }
-  else {
+  } else {
     MPI_Reduce(&local_result[0], MPI_IN_PLACE, X.Rows * Y.Col, MPI_DOUBLE,
       MPI_SUM, 0, MPI_COMM_WORLD);
   }
@@ -169,5 +168,6 @@ std::vector<double> randomMatrix(const int Col, const int Rows) {
     double rand_val = static_cast<double>(std::rand() % 50 + 1);
     rand_val < 4 ? All[i] = rand_val : All[i] = 0;
   }
+
   return All;
 }
