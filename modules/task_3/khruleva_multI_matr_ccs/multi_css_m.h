@@ -2,7 +2,7 @@
 
 #include <mpi.h>
 #include <vector>
-#ifndef MODULES_TASK_3_KHRULEVA_MULTI_METER_CCS_MULTI_CSS_M_H_
+#ifndef MODULES_TASK_3_HRULEVA_MULTI_METER_CCS_MULTI_CSS_M_H_
 #define MODULES_TASK_3_KHRULEVA_MULTI_METER_CCS_MULTI_CSS_M_H_
 struct MatrixCCS {
   std::vector<double> val;
