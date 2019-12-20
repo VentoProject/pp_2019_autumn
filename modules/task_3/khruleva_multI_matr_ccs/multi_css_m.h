@@ -1,6 +1,6 @@
 // Copyright 2019 Khruleva Anastasia
 #ifndef MODULES_TASK_3_KHRULEVA_MULTI_MATR_CCS_MULTI_CSS_M_H_
-#define MODULES_TASK_3_KHRULEVA_MULTI_METR_CCS_MULTI_CSS_M_H_
+#define MODULES_TASK_3_KHRULEVA_MULTI_MATR_CCS_MULTI_CSS_M_H_
 #include <mpi.h>
 #include <vector>
 struct MatrixCCS {
@@ -19,4 +19,4 @@ MatrixCCS CCS(const std::vector<double> Mart_N,
 std::vector<double> multiplication(MatrixCCS X, MatrixCCS Y);
 std::vector<double> randomMatrix(const int col, const int rows);
 
-#endif  // MODULES_TASK_3_HRULEVA_MULTI_METR_CCS_MULTI_CSS_M_H_
+#endif  // MODULES_TASK_3_HRULEVA_MULTI_MATR_CCS_MULTI_CSS_M_H_
