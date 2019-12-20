@@ -5,7 +5,7 @@
 #include <gtest-mpi-listener.hpp>
 #include <vector>
 
-#include "../../../modules/task_3/khruleva_multI_matr_ccs/multi_ccs_m.h"
+#include "../../../modules/task_3/khruleva_multI_matr_ccs/multi_ccs.h"
 
 TEST(Matrix_milt_CCS, seq) {
   int rank;

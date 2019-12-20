@@ -5,7 +5,7 @@
 #include <iostream>
 #include <random>
 #include <ctime>
-#include "../../../modules/task_3/khruleva_multI_matr_ccs/multi_ccs_m.h"
+#include "../../../modules/task_3/khruleva_multI_matr_ccs/multi_ccs.h"
 
 MatrixCCS CCS(const std::vector<double> Mart_N, const int Col_N,
   const int Rows_N) {
